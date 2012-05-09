@@ -68,7 +68,7 @@ You also will want to turn off sessions for any routes you want to cache so the 
       class:            sfSelectiveCacheSessionStorage
       param:
         auto_start:     false
-        session_name:   innocentdrinks
+        session_name:   yoursessionname
         cache:
           class:        sfMemcacheCache
           param:
