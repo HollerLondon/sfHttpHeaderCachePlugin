@@ -9,7 +9,7 @@ This plugin aims to sit on top of Symfony's built-in caching configuration to pr
 A word of warning
 -----------------
 
-With a caching reverse proxy in place (or even a proxy at an ISP level), this plugin will cache the whole response when with_layout is set to true in your factories.yml. This may result in unexpected results if you rely on the user session, so use it with caution, as you could end up spewing other people's data out for all other users infront of your caching reverse proxy (or indeed, behind a ISP's proxy).
+With a caching reverse proxy in place (or even a proxy at an ISP level), this plugin will cache the whole response when with_layout is set to true in your factories.yml. This may result in unexpected results if you rely on the user session, so use it with caution, as you could end up spewing other people's data out for all other users in front of your caching reverse proxy (or indeed, behind a ISP's proxy).
 
 Configuration
 -------------
@@ -60,6 +60,27 @@ The nature of this plugin is that it only caches whole-page responses with the l
                 servers: # Array of servers
                   localhost:
                     host: 127.0.0.1
+
+
+You also will want to turn off sessions for any routes you want to cache so the session cookie is not inherited by everyone (NOTE: this feature is not yet fully fleshed out and is subject to change)
+
+    storage:
+      class:            sfSelectiveCacheSessionStorage
+      param:
+        auto_start:     false
+        session_name:   innocentdrinks
+        cache:
+          class:        sfMemcacheCache
+          param:
+            servers: # Array of servers
+              localhost:
+                host: 127.0.0.1
+
+And in the routing, set a parameter of no_session on those routes which are header cached.
+
+      homepage:
+        url:    /
+        param:  { module: default, action: index, no_session: true }
 
 Credits
 -------
