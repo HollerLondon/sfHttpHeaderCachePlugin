@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+  <name>sfHttpHeaderCachePlugin</name>
+  <channel>plugins.symfony-project.org</channel>
+  <summary>Send valid caching headers for HTTP Response caching</summary>
+  <description>Sits atop Symfony's caching layer and configration mechanisms and serves the response with valid caching headers when the layout cache is on</description>
+  <lead>
+    <name>Ben Lancaster</name>
+    <user>benlancaster</user>
+    <email>benlanc@ster.me.uk</email>
+    <active>yes</active>
+  </lead>
+  <date>2010-10-14</date>
+  <time>00:46:00</time>
+  <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+  </version>
+  <stability>
+    <release>beta</release>
+    <api>beta</api>
+  </stability>
+  <license uri="http://svn.symfony-project.com/plugins/sfHttpHeaderCachePlugin/trunk/LICENSE">MIT license</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <file role="data" name="README" />
+      <file role="data" name="LICENSE" />
+      <dir name="lib">
+        <file role="data" name="sfHttpHeaderCache.class.php" />
+      </dir>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.4</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+      <package>
+        <name>symfony</name>
+        <channel>pear.symfony-project.com</channel>
+        <min>1.2.0</min>
+        <max>1.5.0</max>
+        <exclude>1.5.0</exclude>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease />
+</package>
